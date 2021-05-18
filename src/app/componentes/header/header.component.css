@@ -1,0 +1,59 @@
+.primari{
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, #0575E6 0%, #021B79 51%, #0575E6 100%);
+}
+.icono-principal{
+    padding: 10px;
+    width:150px;
+    height:150px;
+    box-align: center;
+}
+
+.primari1{
+    background-color: rgb(0, 3, 179);
+    color: #fff;
+}
+.mat-toolbar,.mat-toolbar-row,.mat-toolbar-multiple-rows{
+    
+    max-height: 56px;
+    min-height: 56px;
+}
+.mat-sidenav-container {
+    height:calc(100% - 56px);
+    width: 100%;
+    min-width: 100%;
+ }
+@media(min-width:1000px){
+    .mat-toolbar,.mat-toolbar-row,.mat-toolbar-multiple-rows{
+        max-height: 74px;
+        min-height: 74px;
+    }
+    .material-icons{
+        font-size: 40px;
+    }
+    .mat-toolbar h1{
+        font-size: 29px;
+    }
+    .mat-sidenav-container{
+        height: calc(100% - 74px);
+        width: 100%;
+        min-width: 100%;
+    }
+  
+}
+  @media (min-width:768px){
+    
+      .icono-principal{
+        width:250px;
+        height:250px;
+      }
+      .mat-list-base .mat-list-item {
+        font-size: 26px;
+        height: 68px;
+    }
+  }
+

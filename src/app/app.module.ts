@@ -8,11 +8,18 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { YouTubePlayerModule } from "@angular/youtube-player";
 import { BandaComponent } from './componentes/banda/banda.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { AlbumComponent } from './componentes/album/album.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { PrincipalComponent } from './componentes/principal/principal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +27,8 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     HeaderComponent,
     FooterComponent,
     AlbumComponent,
-    DetalleComponent
+    DetalleComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,13 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
-    MatButtonModule
+    YouTubePlayerModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
