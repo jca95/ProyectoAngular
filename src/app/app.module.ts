@@ -8,9 +8,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import {MatButtonModule} from '@angular/material/button';
+import { BandaComponent } from './componentes/banda/banda.component';
+import { HeaderComponent } from './componentes/header/header.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { AlbumComponent } from './componentes/album/album.component';
+import { DetalleComponent } from './componentes/detalle/detalle.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BandaComponent,
+    HeaderComponent,
+    FooterComponent,
+    AlbumComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
