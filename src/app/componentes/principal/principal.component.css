@@ -4,3 +4,32 @@
     padding-right: 0px;
     
   }
+
+
+.colection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  grid-auto-rows: 300px;
+  grid-gap: 1rem;
+  justify-content: center;
+
+  min-height: 100vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  padding-top: 2%;
+}
+.colection article {
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid silver;
+  background: #f5f5f5;
+  box-shadow: 0 2px 10px -5px rgba(0,0,0,0.5);
+}
+.colection article.wide {
+  grid-column-end: span 2;
+}
+.colection article.tall {
+  grid-row-end: span 2;
+}

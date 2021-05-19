@@ -13,6 +13,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator'
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { BandaComponent } from './componentes/banda/banda.component';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -20,6 +24,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { AlbumComponent } from './componentes/album/album.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +33,8 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     FooterComponent,
     AlbumComponent,
     DetalleComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,9 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

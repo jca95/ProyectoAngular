@@ -3,77 +3,37 @@
 
 
     
-    <div class="row" style="margin-left: 12%;margin-right: 12%;justify-content: center;padding-top: 5%;" >
-      <div class="col-md" style=" width: 90%; cursor: pointer;" (click)="album()">
-       <div>
-        <img src="https://images-na.ssl-images-amazon.com/images/I/61ei6DU64mL._SY355_.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto; display:block;">
-       </div>
-       <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-        Queen II
-       </div>
-      </div>
-      <div class="col-md" style="width: 70%;">
-        <div>
-            <img src="https://www.todorock.com/wp-content/uploads/2019/07/ac-dc-black-ice.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
-        </div>
-        <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-            Black Ice
-        </div>
-      </div>
-      <div class="col-md" style=" width: 70%;">
-       <div>
-         <img src="https://images-na.ssl-images-amazon.com/images/I/81gRMFAKxmL._SX355_.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
-        </div>
-        <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-            Some Girl
-        </div>
-      </div>
-      <div class="col-md" style=" width: 70%;">
-       <div>
-           <img src="https://i.pinimg.com/originals/6c/e8/43/6ce843875af20ca7d3fa02285a86ec18.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
-        </div>
-        <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-            Ramones Rocket to Rusia
-        </div>
-      </div>
-    
-</div>
-    
-      <div class="row" style="margin-left: 12%;margin-right: 12%;justify-content: center;padding-top: 5%;">
-        <div class="col-md" style=" width: 90%;" >
-         <div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/81gRMFAKxmL._SX355_.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto; display:block;">
-         </div>
-         <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-          Some Girl
-         </div>
-        </div>
-        <div class="col-md" style="width: 70%;">
-          <div>
-              <img src="https://www.todorock.com/wp-content/uploads/2019/07/ac-dc-black-ice.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
+   
+      <div class="colection"  (click)="album()">
+        <div  *ngFor="let p of datos | paginate:page_size:page_number; let i=index">
+          <article>
+            <img src={{p.img}} alt="Girl in a jacket" width="250" height="227" style="margin:auto; display:block;">
+           
+          </article>
+          <div style="background-color: black; color:white;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
+            {{p.name}}
           </div>
-          <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-              Black Ice
-          </div>
+            
         </div>
-        <div class="col-md" style=" width: 70%;">
-         <div>
-           <img src="https://images-na.ssl-images-amazon.com/images/I/61ei6DU64mL._SY355_.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
+          
+         
+         <!-- <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
+            {{p.name}}
           </div>
-          <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-              Queen II
-          </div>
+          -->
         </div>
-        <div class="col-md" style=" width: 70%;">
-         <div>
-             <img src="https://i.pinimg.com/originals/6c/e8/43/6ce843875af20ca7d3fa02285a86ec18.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto;display:block;">
-          </div>
-          <div style="background-color: black; color:white;margin: 1%;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-              Ramones Rocket to Rusia
-          </div>
-        </div>
-      </div>
+        
+       
       
-
+     
+    
+     
+    <mat-paginator 
+        [length]="datos.length"
+        [pageSize]="page_size"
+        [pageSizeOptions]="page_size_option"
+        (page)="handlePage($event)">
+    </mat-paginator>
+    
 
 </div>
