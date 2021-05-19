@@ -1,0 +1,61 @@
+<div class="ppp">
+    <button id="quitar" class="quitar" (click)="onNoClick()" style="outline: none;outline: none;
+    border-radius: 0px;
+    background-color: transparent;
+    border: none;
+    color: white;">
+      <i class="material-icons">clear</i> <!-- Animation here -->
+    </button>
+    <h1 mat-dialog-title>Añadir Banda</h1>
+    <form [formGroup]="bandaForm" >
+      <div mat-dialog-content>
+  
+        <div class="editarmeta">
+          <input id="nombre" type="text" placeholder="Nombre de la banda" formControlName="nombre" style="color:white"
+            autocomplete="off">
+        </div>
+        <div class="editarmeta">
+            <input id="imagen" type="text" placeholder="Url imagen de la banda *" formControlName="imagen" style="color:white"
+            autocomplete="off">
+        </div>
+    </div>
+        
+  
+  
+        <div class="editarpesotext">
+          <textarea placeholder="Descripcion" formControlName="descripcion"></textarea>
+        </div>
+        <mat-divider></mat-divider>
+        <h3 mat-dialog-title style="margin:0">Enlaces de canciones </h3>
+        <div class="example-flex-container">
+
+            <button id="removeDia" mat-icon-button  color="white" [disabled]="enlaces.length === 0" (click)="substractCancion()" style="outline: none; ">
+                <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+            <div id="n1" class="editarejer">
+                <input id="serie" type="number" placeholder="Nº Series *"   style="color:white; text-align: center;" [value]="numEnlaces" disabled  >
+            </div>
+            <button id="removeDia1" mat-icon-button  color="white" [disabled]="enlaces.length === 3" (click)="addCancion()"style="outline: none;">
+                <mat-icon>add_circle_outline</mat-icon>
+            </button>
+        </div>
+        <!-- <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="data.animal" placeholder="Meta" style="width: 69%; color:white;">
+                <img src="assets/imagenes/icons8-peso-kg-32.png">
+            </mat-form-field> -->
+            <div *ngIf="numEnlaces!=0">
+                <div *ngFor="let i of canciones; let id=index">
+                    <div id="n1" class="canciones" >
+                    <input id="enlace{{id}}" type="text" placeholder="url youtube"  style="color:white;font-size:15px; margin-right: 20px;" [value]="canciones[id]" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            
+
+      <div mat-dialog-actions style="justify-content: flex-end;">
+        <button mat-raised-button color="white" (click)="onNoClick()" cdkFocusInitial
+          style="outline: none; color:white; border:3px solid white">Cancelar</button>
+        <button type="submit" mat-raised-button color="white" style=" width: 93.41px;;outline: none; color:white; border:3px solid white">Guardar</button>
+      </div>
+    </form>
+  </div>

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AddBandaComponent } from '../add-banda/add-banda.component';
 
 
 
@@ -31,12 +33,9 @@ const ELEMENT_DATA: BandaElement[] = [
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements  OnInit {
-  
 
-  @ViewChild(MatPaginator,)paginator!: MatPaginator;
   datos=ELEMENT_DATA;
-  constructor( private route: ActivatedRoute,
-    private router: Router,) { }
+  constructor( private route: ActivatedRoute,private router: Router,public dialog: MatDialog) { }
 
     
   ngOnInit(): void {
@@ -68,5 +67,24 @@ export class PrincipalComponent implements  OnInit {
   }
   album(){
     this.router.navigate(["banda"]);
+  }
+
+  addBanda(){
+    const dialofgRef=this.dialog.open(AddBandaComponent,{
+      width:'auto',
+      height: 'auto',
+    });
+    dialofgRef.afterClosed().subscribe(result=>{
+      if(result!=undefined){
+        /*
+          let data={
+            nombre:result.nombre,
+            musculo:result.musculo,
+            descripcion:result.descripcion,
+          }*/
+         // let _id=this.firestoreService.addEjercicios(data);
+        }
+      
+    })
   }
 }
