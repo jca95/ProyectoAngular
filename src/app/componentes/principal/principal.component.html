@@ -2,10 +2,15 @@
 
 
 
-    
+    <h1>Bandas</h1>
+    <div class='form-control'> 
+      <input type="text" class="forms-control" placeholder="Buscar.." [(ngModel)]="filterPost" name="filterPost"/>
+
+      
+    </div>
    
       <div class="colection"  (click)="album()">
-        <div  *ngFor="let p of datos | paginate:page_size:page_number; let i=index">
+        <div  *ngFor="let p of datos | paginate:page_size:page_number | filter: filterPost; let i=index">
           <article>
             <img src={{p.img}} alt="Girl in a jacket" width="250" height="227" style="margin:auto; display:block;">
            

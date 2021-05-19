@@ -41,7 +41,8 @@ export class PrincipalComponent implements  OnInit {
     
   ngOnInit(): void {
   }
- 
+  filterName: string | undefined;
+ filterPost=''
   page_size: number=7;
   page_number: number=1;
   page_size_option= [5,10,20];
@@ -50,8 +51,12 @@ export class PrincipalComponent implements  OnInit {
     this.page_size=e.pageSize
     this.page_number=e.pageIndex + 1
   }
-
-
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+   
+  }
+  
   album(){
     this.router.navigate(["banda"]);
   }

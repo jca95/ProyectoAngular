@@ -25,6 +25,8 @@ import { AlbumComponent } from './componentes/album/album.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     AlbumComponent,
     DetalleComponent,
     PrincipalComponent,
-    PaginatePipe
+    PaginatePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
     YouTubePlayerModule,
+    FormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
