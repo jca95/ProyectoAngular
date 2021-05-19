@@ -32,8 +32,8 @@ const ELEMENT_DATA: BandaElement[] = [
 })
 export class PrincipalComponent implements  OnInit {
   
- 
 
+  @ViewChild(MatPaginator,)paginator!: MatPaginator;
   datos=ELEMENT_DATA;
   constructor( private route: ActivatedRoute,
     private router: Router,) { }
@@ -51,12 +51,21 @@ export class PrincipalComponent implements  OnInit {
     this.page_size=e.pageSize
     this.page_number=e.pageIndex + 1
   }
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-   
+ 
+  applyFilter(event:Event){
+    let filterValue = (event.target as HTMLInputElement).value;
+    if(filterValue==""){
+     this.datos=ELEMENT_DATA;
+    }else{
+      
+      filterValue= filterValue.toLowerCase();
+      filterValue= filterValue.trim();
+      this.datos=this.datos.filter(item => {
+        return item.name.toLowerCase().trim().includes(filterValue);
+      })
+    }
+    
   }
-  
   album(){
     this.router.navigate(["banda"]);
   }
