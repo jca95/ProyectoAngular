@@ -23,8 +23,6 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 import { BandaComponent } from './componentes/banda/banda.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { AlbumComponent } from './componentes/album/album.component';
-import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -36,8 +34,6 @@ import { AddBandaComponent } from './componentes/add-banda/add-banda.component';
     BandaComponent,
     HeaderComponent,
     FooterComponent,
-    AlbumComponent,
-    DetalleComponent,
     PrincipalComponent,
     PaginatePipe,
     FilterPipe,
