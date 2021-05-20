@@ -6,7 +6,7 @@
      text-align: center;
      align-items: center;
    }
-  .editarmeta{
+  .addBanda{
         display: inline-flex;
     background-color: #303030;
     width:100%;
@@ -22,7 +22,7 @@
     border-bottom:3px solid white;
     margin-bottom: 10px;
   }
-  .editarpesotext{
+  .bandaDestext{
       align-items: center;
     display: inline-flex;
     background-color: #303030;
@@ -39,13 +39,13 @@
     border-bottom:3px solid white;
     margin-bottom: 18px;
   }
-  .editarpesotext:focus-within{
+  .bandaDestext:focus-within{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background-color:rgba(0, 217, 255, 0.459);
     border-bottom:3px solid rgba(0, 217, 255);
   }
-  .editarmeta:focus-within{
+  .addBanda:focus-within{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background-color:rgba(0, 217, 255, 0.459);

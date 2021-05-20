@@ -10,11 +10,11 @@
     <form [formGroup]="bandaForm" >
       <div mat-dialog-content>
   
-        <div class="editarmeta">
+        <div class="addBanda">
           <input id="nombre" type="text" placeholder="Nombre de la banda" formControlName="nombre" style="color:white"
             autocomplete="off">
         </div>
-        <div class="editarmeta">
+        <div class="addBanda">
             <input id="imagen" type="text" placeholder="Url imagen de la banda *" formControlName="imagen" style="color:white"
             autocomplete="off">
         </div>
@@ -22,20 +22,20 @@
         
   
   
-        <div class="editarpesotext">
+        <div class="bandaDestext">
           <textarea placeholder="Descripcion" formControlName="descripcion"></textarea>
         </div>
         <mat-divider></mat-divider>
         <h3 mat-dialog-title style="margin:0">Enlaces de canciones </h3>
         <div class="example-flex-container">
 
-            <button id="removeDia" mat-icon-button  color="white" [disabled]="enlaces.length === 0" (click)="substractCancion()" style="outline: none; ">
+            <button id="remove" mat-icon-button  color="white" [disabled]="enlaces.length === 0" (click)="substractCancion()" style="outline: none; ">
                 <mat-icon>remove_circle_outline</mat-icon>
             </button>
             <div id="n1" class="editarejer">
                 <input id="serie" type="number" placeholder="Nº Series *"   style="color:white; text-align: center;" [value]="numEnlaces" disabled  >
             </div>
-            <button id="removeDia1" mat-icon-button  color="white" [disabled]="enlaces.length === 3" (click)="addCancion()"style="outline: none;">
+            <button id="remove1" mat-icon-button  color="white" [disabled]="enlaces.length === 3" (click)="addCancion()"style="outline: none;">
                 <mat-icon>add_circle_outline</mat-icon>
             </button>
         </div>
@@ -55,7 +55,7 @@
       <div mat-dialog-actions style="justify-content: flex-end;">
         <button mat-raised-button color="white" (click)="onNoClick()" cdkFocusInitial
           style="outline: none; color:white; border:3px solid white">Cancelar</button>
-        <button type="submit" mat-raised-button color="white" style=" width: 93.41px;;outline: none; color:white; border:3px solid white">Guardar</button>
+        <button type="submit" (click)="addCancionForm()" mat-raised-button color="white" style=" width: 93.41px;;outline: none; color:white; border:3px solid white">Guardar</button>
       </div>
     </form>
   </div>

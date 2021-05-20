@@ -1,21 +1,21 @@
 <div class="container-fluid">
     <div style="display: flex;justify-content: center; align-items: center; flex-direction: column; padding-top: 3%;">
     <mat-form-field appearance="outline" style="    width: 270px;">
-      <mat-label>Buscar</mat-label>
+      <mat-label>{{busqueda}}</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     </div>
    
-   
+    
       <div class="colection" >
-        <div  *ngFor="let p of datos | filter: filterPost| paginate:page_size:page_number; let i=index">
+        <div  *ngFor="let p of bandas | filter: filterPost; let i=index">
           <article (click)="album()">
-            <img src={{p.img}} alt="Girl in a jacket" width="250" height="227" style="margin:auto; display:block;">
+            <img src={{p.imagen}} alt="Girl in a jacket" width="250" height="227" style="margin:auto; display:block;">
            
           </article>
           <div style="background-color: black; color:white;height: 50px;text-align: center;font-size: 25px;align-content: center; display: grid;">
-            {{p.name}}
+            {{p.nombre}}
           </div>
             
         </div>
@@ -25,16 +25,4 @@
         <button mat-fab style="margin-top: 5px;margin-bottom: 20px; left: 47%; background-color: rgb(66 66 66);border: 2px solid white;" (click)="addBanda()">
           <i class="material-icons" style="color:rgba(0, 217, 255);">add</i> <!-- Animation here -->
         </button>
-        
-    <mat-paginator 
-        [length]="datos.length"
-        [pageSize]="page_size"
-        [pageSizeOptions]="page_size_option"
-        (page)="handlePage($event)">
-    </mat-paginator>
-    
-  
-
- 
-   
 </div>

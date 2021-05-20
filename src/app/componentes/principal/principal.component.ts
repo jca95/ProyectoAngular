@@ -3,13 +3,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Banda } from 'src/app/interfaces/banda.interfaz';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { AddBandaComponent } from '../add-banda/add-banda.component';
 
 
 
 
 export interface BandaElement {
-  name: string;
+  name: String;
   img: String;
 }
 
@@ -32,19 +34,56 @@ const ELEMENT_DATA: BandaElement[] = [
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent implements  OnInit {
-
-  datos=ELEMENT_DATA;
-  constructor( private route: ActivatedRoute,private router: Router,public dialog: MatDialog) { }
-
-    
-  ngOnInit(): void {
-  }
+export class PrincipalComponent implements  OnInit, AfterViewInit {
+  busqueda:string;
+  datos:Array<Banda>;
+  bandas:Array<Banda>;
   filterName: string | undefined;
- filterPost=''
-  page_size: number=7;
+  filterPost=''
+  page_size: number=10;
   page_number: number=1;
   page_size_option= [5,10,20];
+  constructor( private route: ActivatedRoute,private router: Router,public dialog: MatDialog,private firestoreService: FirestoreService,) { 
+    this.bandas=[];
+    this.busqueda="";
+    this.datos=new Array<Banda>();
+  }
+  ngAfterViewInit(): void {
+    console.log("pruebasss")
+    this.bandas=[];
+    this.firestoreService.getBandas().subscribe((bandas)=>{
+      console.log("jdbfjksdbf")
+      bandas.forEach((i:any)=>{
+        var b:Banda;
+       
+        b={
+          id:i.payload.doc.data().id,
+          nombre:i.payload.doc.data().nombre,
+          imagen:i.payload.doc.data().imagen,
+          detalle:i.payload.doc.data().detalle,
+          numEnlaces:i.payload.doc.data().numEnlaces,
+          enlace1:i.payload.doc.data().enlace1,
+          enlace2:i.payload.doc.data().enlace2,
+          enlace3:i.payload.doc.data().enlace3,
+          idYoutube1:i.payload.doc.data().idYoutube1,
+          idYoutube2:i.payload.doc.data().idYoutube2,
+          idYoutube3:i.payload.doc.data().idYoutube3,
+        }
+        this.bandas.push(b);
+        
+        
+      })
+      this.busqueda="Buscar"
+     this.datos=this.bandas;
+      console.log(this.bandas);
+    })
+  }
+ 
+    
+  ngOnInit(): void {
+    
+  }
+  
 
   handlePage(e:PageEvent){
     this.page_size=e.pageSize
@@ -54,13 +93,20 @@ export class PrincipalComponent implements  OnInit {
   applyFilter(event:Event){
     let filterValue = (event.target as HTMLInputElement).value;
     if(filterValue==""){
-     this.datos=ELEMENT_DATA;
+      console.log("vaciooooooo")
+     this.bandas=this.datos;
     }else{
-      
+      console.log("filter");
       filterValue= filterValue.toLowerCase();
       filterValue= filterValue.trim();
-      this.datos=this.datos.filter(item => {
-        return item.name.toLowerCase().trim().includes(filterValue);
+      this.bandas=this.bandas.filter(item => {
+        console.log(item.nombre);
+        let a: string;
+        a=""+item.nombre;
+        a.toLowerCase();
+        a.trim()
+        a.includes(filterValue);
+        return item.nombre.toLowerCase().trim().includes(filterValue);
       })
     }
     
@@ -83,8 +129,11 @@ export class PrincipalComponent implements  OnInit {
             descripcion:result.descripcion,
           }*/
          // let _id=this.firestoreService.addEjercicios(data);
+         console.log("bfjkbdksbfjhfsdjkhfjksdhj")
+         console.log(result);
+         this.firestoreService.createBanda(result);
         }
-      
+      console.log("biennnnnn no he metido nadaa ajajajajja")
     })
   }
 }

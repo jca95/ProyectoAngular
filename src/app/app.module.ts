@@ -29,6 +29,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AddBandaComponent } from './componentes/add-banda/add-banda.component';
 import { EliminarBandaComponent } from './componentes/eliminar-banda/eliminar-banda.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,7 @@ import { EliminarBandaComponent } from './componentes/eliminar-banda/eliminar-ba
   entryComponents:[
     AddBandaComponent,
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

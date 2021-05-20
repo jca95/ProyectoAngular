@@ -4,7 +4,9 @@
     padding-right: 0px;
     
   }
-
+  ::ng-deep.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white;
+}
   ::ng-deep.mat-fab .mat-button-wrapper {
      padding: 0px 0;
   }
