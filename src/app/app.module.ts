@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { AddBandaComponent } from './componentes/add-banda/add-banda.component';
 import { EliminarBandaComponent } from './componentes/eliminar-banda/eliminar-banda.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { EditBandaComponent } from './componentes/edit-banda/edit-banda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     PaginatePipe,
     FilterPipe,
     AddBandaComponent,
-    EliminarBandaComponent
+    EliminarBandaComponent,
+    EditBandaComponent
   ],
   imports: [
     BrowserModule,

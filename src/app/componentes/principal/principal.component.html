@@ -10,7 +10,7 @@
     
       <div class="colection" >
         <div  *ngFor="let p of bandas | filter: filterPost; let i=index">
-          <article (click)="album()">
+          <article (click)="album(i)">
             <img src={{p.imagen}} alt="Girl in a jacket" width="250" height="227" style="margin:auto; display:block;">
            
           </article>

@@ -49,10 +49,9 @@ export class PrincipalComponent implements  OnInit, AfterViewInit {
     this.datos=new Array<Banda>();
   }
   ngAfterViewInit(): void {
-    console.log("pruebasss")
     this.bandas=[];
     this.firestoreService.getBandas().subscribe((bandas)=>{
-      console.log("jdbfjksdbf")
+      this.bandas=[];
       bandas.forEach((i:any)=>{
         var b:Banda;
        
@@ -75,7 +74,7 @@ export class PrincipalComponent implements  OnInit, AfterViewInit {
       })
       this.busqueda="Buscar"
      this.datos=this.bandas;
-      console.log(this.bandas);
+     
     })
   }
  
@@ -93,14 +92,11 @@ export class PrincipalComponent implements  OnInit, AfterViewInit {
   applyFilter(event:Event){
     let filterValue = (event.target as HTMLInputElement).value;
     if(filterValue==""){
-      console.log("vaciooooooo")
      this.bandas=this.datos;
     }else{
-      console.log("filter");
       filterValue= filterValue.toLowerCase();
       filterValue= filterValue.trim();
       this.bandas=this.bandas.filter(item => {
-        console.log(item.nombre);
         let a: string;
         a=""+item.nombre;
         a.toLowerCase();
@@ -111,8 +107,8 @@ export class PrincipalComponent implements  OnInit, AfterViewInit {
     }
     
   }
-  album(){
-    this.router.navigate(["banda"]);
+  album(i: number){
+    this.router.navigate(["banda/",this.bandas[i].id]);
   }
 
   addBanda(){
@@ -122,18 +118,10 @@ export class PrincipalComponent implements  OnInit, AfterViewInit {
     });
     dialofgRef.afterClosed().subscribe(result=>{
       if(result!=undefined){
-        /*
-          let data={
-            nombre:result.nombre,
-            musculo:result.musculo,
-            descripcion:result.descripcion,
-          }*/
-         // let _id=this.firestoreService.addEjercicios(data);
-         console.log("bfjkbdksbfjhfsdjkhfjksdhj")
-         console.log(result);
+   
          this.firestoreService.createBanda(result);
         }
-      console.log("biennnnnn no he metido nadaa ajajajajja")
+     
     })
   }
 }

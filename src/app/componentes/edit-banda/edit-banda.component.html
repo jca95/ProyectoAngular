@@ -6,7 +6,7 @@
     color: white;">
       <i class="material-icons">clear</i> <!-- Animation here -->
     </button>
-    <h1 mat-dialog-title>Añadir Banda</h1>
+    <h1 mat-dialog-title>Editar Banda</h1>
     <form [formGroup]="bandaForm" >
       <div mat-dialog-content>
   
@@ -46,7 +46,7 @@
             <div *ngIf="numEnlaces!=0">
                 <div *ngFor="let i of canciones; let id=index">
                     <div id="n1" class="canciones" >
-                    <input id="enlace{{id}}" type="text" placeholder="url youtube"  style="color:white;font-size:15px; margin-right: 20px;" [value]="canciones[id]" autocomplete="off">
+                    <input id="enlace{{id}}" type="text" placeholder="url youtube"  style="color:white;font-size:15px; margin-right: 20px;" [value]="enlaces[id]" autocomplete="off">
                     </div>
                 </div>
             </div>

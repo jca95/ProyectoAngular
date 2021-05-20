@@ -1,34 +1,17 @@
 <mat-toolbar color="primary" style="text-align: center;">
     <mat-toolbar-row>
-      <button id="menu" mat-icon-button style="outline: none;">
-        <mat-icon  (click)="sidenav.toggle()"> menu</mat-icon>
-      </button>
-      <h1 style="position: relative;
+    
+     
+        <a class="text-white" style="position: relative;
         width: 100%;
         left: 0;
-        text-align: center">Bandas de musica</h1>
+        text-align: center" mat-list-item [routerLink]=""> Bandas Rock </a>
       <span class="menu-spacer"></span>
     </mat-toolbar-row>
   
 </mat-toolbar>
   <mat-sidenav-container>
-    <mat-sidenav #sidenav style="background-color: #673ab7"> 
-      <div style="width: 200; height: 200;">
-        <img class="icono-principal" src="assets/imagenes/LOGO.png" alt="" >
-      </div>
-      <mat-nav-list >
-  
-        <a (click)="sidenav.close()" class="text-white" mat-list-item [routerLink]=""> Rutina Actual </a>
-        <a (click)="sidenav.close()" class="text-white" mat-list-item [routerLink]=""> Mis Rutinas</a>
-        <a (click)="sidenav.close()" class="text-white"mat-list-item [routerLink]=""> Ejercicios </a>
-        <a (click)="sidenav.close()" class="text-white" mat-list-item [routerLink]=""> Historial </a>
-        <a (click)="sidenav.close()" class="text-white" mat-list-item [routerLink]="'peso'"> Peso </a>
-        <a (click)="sidenav.close()" class="text-white" mat-list-item [routerLink]="''"> Salir</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
     <div id="hijo" style="height:100%">
        <router-outlet></router-outlet>
     </div>
-    </mat-sidenav-content>
   </mat-sidenav-container> 

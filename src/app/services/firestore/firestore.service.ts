@@ -17,8 +17,7 @@ export class FirestoreService {
   //CRUD Por defecto 
   //Crea una nueva banda
   public createBanda(data:any) {
-    console.log("holaa");
-    console.log(data);
+
     let datos={
       id:data.id,
       nombre:data.nombre,
@@ -40,7 +39,7 @@ export class FirestoreService {
   //Obtener una Banda
   public getBanda(documentId: string)
   {
-    return this.firestore.collection('Banda').doc(documentId).snapshotChanges();
+    return this.firestore.collection('Banda').doc<Banda>(documentId).snapshotChanges();
   }
   //Obtiene todos los gatos
   public getBandas() {
@@ -50,7 +49,9 @@ export class FirestoreService {
   public updateBanda(documentId: string, data: any) {
     return this.firestore.collection('Banda').doc(documentId).set(data);
   }
-
+  public deleteBanda(documentId:string){
+    return this.firestore.collection('Banda').doc(documentId).delete();
+  }
   public generarID(){
     return this.firestore.createId();
   }
