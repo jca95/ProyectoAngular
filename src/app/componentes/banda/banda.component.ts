@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EliminarBandaComponent } from '../eliminar-banda/eliminar-banda.component';
 
 @Component({
   selector: 'app-banda',
@@ -9,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BandaComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router,public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -20,6 +22,17 @@ export class BandaComponent implements OnInit {
 
     
   }
-
+  public showEliminar(){
+    const dialogRef = this.dialog.open(EliminarBandaComponent,{
+      width: '374px',
+      height: 'auto',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result!=undefined){
+        //eliminar de la base de datos
+       
+      }
+    });
+  }
  
 }

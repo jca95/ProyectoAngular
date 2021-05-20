@@ -3,7 +3,7 @@
 
 
 
-    <div class="row" style="margin-left: 12%;margin-right: 12%;justify-content: center;padding-top: 5%; padding-bottom: 5%;" >
+    <div class="row" style="margin-left: 12%;margin-right: 12%;justify-content: center;padding-top: 5%;" >
         <div class="col-md" style=" width: 90%;">
             <div>
              <img src="https://images-na.ssl-images-amazon.com/images/I/81gRMFAKxmL._SX355_.jpg" alt="Girl in a jacket" width="225" height="225" style="margin:auto; display:block;">
@@ -21,11 +21,22 @@
              A Night at the Opera 1975
              Innuendo 1991
         </div>
+        <div class="col-xs" style="width: 100%;justify-content: center;display: flex; padding-bottom: 25px;padding-top: 10px;">
+            <button mat-fab style="background-color: rgb(66 66 66); border: 2px solid white;" >
+                <i class="material-icons" style="color:rgba(0, 217, 255);">edit</i> <!-- Animation here -->
+              </button>
+              <button mat-fab style="margin-left: 25px; background-color: rgb(66 66 66);border: 2px solid white;" (click)="showEliminar()">
+                <i class="material-icons" style="color:rgba(0, 217, 255);">delete_forever</i> <!-- Animation here -->
+              </button>
+        </div>
+        
     </div>
+   
     <mat-divider></mat-divider>
-    <h1 mat-dialog-title style="margin:0;  padding-top: 5px;text-align: center;">Algunas Canciones de Queen </h1>
-    <div class="row" style="justify-content: center;padding-top: 5%;" >
-        <div class="col-md">
+    <h1 mat-dialog-title style="margin:0;padding-top:5px;text-align: center;">Algunas Canciones de Queen </h1>
+    <div class="row" style="justify-content: center;padding-top: 50px;" >
+        <div class="col-md" style="    justify-content: center;
+        display: flex;">
             <youtube-player 
                 videoId="fJ9rUzIMcZQ" 
                 suggestedQuality="highres"
@@ -33,7 +44,8 @@
                 [width]='350'>
             </youtube-player>
         </div>
-        <div class="col-md">
+        <div class="col-md" style="    justify-content: center;
+        display: flex;" >
             <youtube-player 
                 videoId="fJ9rUzIMcZQ" 
                 suggestedQuality="highres"
@@ -41,7 +53,8 @@
                 [width]="350">
             </youtube-player>
         </div>
-        <div class="col-md">
+        <div class="col-md" style="    justify-content: center;
+        display: flex;">
             <youtube-player 
                 videoId="fJ9rUzIMcZQ" 
                 suggestedQuality="highres"

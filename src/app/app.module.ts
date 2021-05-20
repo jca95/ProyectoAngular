@@ -28,6 +28,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AddBandaComponent } from './componentes/add-banda/add-banda.component';
+import { EliminarBandaComponent } from './componentes/eliminar-banda/eliminar-banda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { AddBandaComponent } from './componentes/add-banda/add-banda.component';
     PrincipalComponent,
     PaginatePipe,
     FilterPipe,
-    AddBandaComponent
+    AddBandaComponent,
+    EliminarBandaComponent
   ],
   imports: [
     BrowserModule,

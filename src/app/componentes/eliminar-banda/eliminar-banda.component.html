@@ -1,0 +1,22 @@
+<div class="ppp">
+    <button id="quitar" class="quitar" (click)="onNoClick()" style="outline: none;outline: none;
+    border-radius: 0px;
+    background-color: transparent;
+    border: none;
+    color: white;">
+        <i class="material-icons">clear</i> <!-- Animation here -->
+    </button>
+    <div mat-dialog-content>
+        <h3 stile="color:white">Estas seguro que desea eliminar.</h3>
+    </div>
+    <div mat-dialog-actions style="justify-content: flex-end;margin-top: 0px;
+    justify-content: flex-end;
+    /* padding-top: 26px; */
+    margin-bottom: -21px; ">
+        <button mat-raised-button color="white" (click)="onNoClick() " cdkFocusInitial
+            style="outline: none; border:3px solid white"><mat-label style="font-size:20px ;color:white ">No</mat-label></button>
+        <button mat-raised-button color="white" (click)="eliminar()" style="outline: none;  border:3px solid white">
+            <mat-label style="font-size: 20px; color:white;">Si</mat-label></button>
+    </div>
+
+</div>

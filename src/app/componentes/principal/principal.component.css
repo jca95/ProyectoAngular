@@ -5,7 +5,9 @@
     
   }
 
-
+  ::ng-deep.mat-fab .mat-button-wrapper {
+     padding: 0px 0;
+  }
 .colection {
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
@@ -13,7 +15,7 @@
   grid-gap: 1rem;
   justify-content: center;
 
-  min-height: 90vh;
+  min-height: 10vh;
   margin-left: 12%;
   margin-right: 12%;
   padding-top: 2%;
